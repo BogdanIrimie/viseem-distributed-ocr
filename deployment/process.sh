@@ -31,7 +31,7 @@ for directoryName in */ ; do
 	mkdir -p ../final/$directoryName
 	for pngName in $directoryName*.png; do
 		echo "Png name is $pngName"
-		ocrName=$(echo $pngName | sed 's/png/txt/g')
+		ocrName=$(echo $pngName | sed 's/\.png//g')
 		tesseract $pngName ../final/$ocrName -l ron
 	done
 done
