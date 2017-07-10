@@ -4,7 +4,7 @@ Distribute OCR work on several machines.
 # Dependencies
 on worker nodes: poppler-utils, tesseract-ocr, bc, imagemagick;
 ```bash
-sudo apt-get install poppler-utils; sudo apt-get install tesseract-ocr; sudo wget https://github.com/tesseract-ocr/tessdata/raw/master/ron.traineddata -O /usr/share/tesseract-ocr/tessdata/ron.traineddata; sudo apt-get install bc; sudo apt-get install imagemagick
+sudo apt-get --yes --force-yes install poppler-utils; sudo apt-get --yes --force-yes install tesseract-ocr; sudo wget https://github.com/tesseract-ocr/tessdata/raw/master/ron.traineddata -O /usr/share/tesseract-ocr/tessdata/ron.traineddata; sudo apt-get --yes --force-yes install bc; sudo apt-get --yes --force-yes install imagemagick
 ```
 
 
