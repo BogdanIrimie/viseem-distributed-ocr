@@ -4,13 +4,17 @@ cd raw_data
 
 echo "Copying raw data to remote machines."
 i=0
-for directoryName in */ ;do
+for directoryName in */ ; do
         directoryName=$(echo $directoryName | sed 's/\///g')
-        remoteHostNumber=$((i % $# + 1))
-        remoteAddress=${!remoteHostNumber}
-        ssh $remoteAddress "mkdir -p ~/viseem/raw_data"
-        rsync -a --progress $directoryName $remoteAddress:~/viseem/raw_data/
-        ((i++))
+        cd $directoryName
+        for fileName in *.pdf; do
+                remoteHostNumber=$((i % $# + 1))
+                remoteAddress=${!remoteHostNumber}
+                ssh $remoteAddress "mkdir -p ~/viseem/raw_data/$directoryName"
+                rsync -a --progress $fileName $remoteAddress:~/viseem/raw_data/$directoryName/$fileName
+                ((i++))
+        done
+        cd ..
 done
 
 cd ..

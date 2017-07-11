@@ -1,2 +1,5 @@
 deployment/raw_data/
 final/
+raw_data/
+raw_data_test/
+results/

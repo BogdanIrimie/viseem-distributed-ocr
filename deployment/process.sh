@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+startTime=$(date +%s)
+echo "start time is $startTime"
+
 echo "Stage 1 - convert pdf to jpg"
 cd raw_data
 for directoryName in */ ; do
@@ -60,3 +64,9 @@ for directoryName in */ ; do
         done
         cd ..
 done
+
+endTime=$(date +%s)
+echo "End time is: $endTime"
+
+executionTime=$(expr $endTime - $startTime) 
+echo "Execution time was: $executionTime" 
